@@ -87,75 +87,90 @@
         </form>
       </div>
     </div>
-    <header class="top-bar">
-      <div class="brand">
-        <span class="brand-mark">Spot</span>
-        <span class="brand-sub">Quiet discovery for living locally</span>
-      </div>
-      <nav class="nav-links">
-        <a href="#map">Map</a>
-        <a href="#capture">Capture</a>
-        <a href="#nearby">Nearby</a>
-        <a href="#match">Matches</a>
-      </nav>
-      <button class="cta" id="scroll-capture">Post a spot</button>
-    </header>
+    <div class="page">
+      <header class="top-bar">
+        <div class="brand">
+          <span class="brand-mark">Spot</span>
+          <span class="brand-sub">Quiet discovery for living locally</span>
+        </div>
+        <nav class="nav-links">
+          <a href="#map">Map</a>
+          <a href="#capture">Capture</a>
+          <a href="#nearby">Nearby</a>
+          <a href="#match">Matches</a>
+        </nav>
+        <button class="cta" id="scroll-capture">Post a spot</button>
+      </header>
 
-    <main>
-      <section id="map" class="map-hero">
-        <div class="map-panel">
-          <div class="map-texture"></div>
-          <div class="map-lines"></div>
-          <div class="map-markers" id="map-markers"></div>
-          <div class="map-card" id="map-card">
-            <p class="map-title">No spots yet</p>
-            <p class="map-meta">Post your first spot to begin.</p>
-          </div>
-        </div>
-        <div class="map-overlay">
-          <p class="eyebrow">Your flow</p>
-          <h1>Open Spot, capture the moment, share it instantly.</h1>
-          <p class="subtext">
-            Take a photo, add a note, choose how you want to chat, and send it
-            out. Over time, Spot learns your vibe and introduces you to
-            like‑minded locals.
-          </p>
-          <div class="search-shell">
-            <label class="field-label" for="search-input">Search</label>
-            <div class="search-row">
-              <input
-                id="search-input"
-                type="text"
-                placeholder="Search your spots"
-                aria-label="Search saved spots"
-              />
-              <button class="cta" id="search-btn">Explore</button>
+      <main>
+        <section id="map" class="map-hero">
+          <div class="map-panel">
+            <div class="map-texture"></div>
+            <div class="map-lines"></div>
+            <div class="map-markers" id="map-markers"></div>
+            <div class="map-card" id="map-card">
+              <p class="map-title">No spots yet</p>
+              <p class="map-meta">Post your first spot to begin.</p>
             </div>
           </div>
-          <div class="quick-actions">
-            <div>
-              <p class="field-label">Categories</p>
-              <div class="chip-row">
-                <button class="chip">Food</button>
-                <button class="chip">Art</button>
-                <button class="chip">Nature</button>
-                <button class="chip">Music</button>
-                <button class="chip">Tech</button>
-                <button class="chip">Sports</button>
+          <div class="map-overlay">
+            <p class="eyebrow">Your flow</p>
+            <h1>Open Spot, capture the moment, share it instantly.</h1>
+            <p class="subtext">
+              Take a photo, add a note, choose how you want to chat, and send it
+              out. Over time, Spot learns your vibe and introduces you to
+              like‑minded locals.
+            </p>
+            <div class="step-row">
+              <div class="step-card">
+                <p class="step-title">1. Open</p>
+                <p>Launch with the widget‑like quick capture.</p>
+              </div>
+              <div class="step-card">
+                <p class="step-title">2. Capture</p>
+                <p>Photo + comment, then choose 1:1 or group.</p>
+              </div>
+              <div class="step-card">
+                <p class="step-title">3. Connect</p>
+                <p>Chats start fast. Matches improve over time.</p>
               </div>
             </div>
-            <div>
-              <p class="field-label">Popular tags</p>
-              <div class="chip-row">
-                <button class="chip">#latebites</button>
-                <button class="chip">#openair</button>
-                <button class="chip">#meetup</button>
-                <button class="chip">#lowkey</button>
+            <div class="search-shell">
+              <label class="field-label" for="search-input">Search</label>
+              <div class="search-row">
+                <input
+                  id="search-input"
+                  type="text"
+                  placeholder="Search your spots"
+                  aria-label="Search saved spots"
+                />
+                <button class="cta" id="search-btn">Explore</button>
+              </div>
+            </div>
+            <div class="quick-actions">
+              <div>
+                <p class="field-label">Categories</p>
+                <div class="chip-row">
+                  <button class="chip">Food</button>
+                  <button class="chip">Art</button>
+                  <button class="chip">Nature</button>
+                  <button class="chip">Music</button>
+                  <button class="chip">Tech</button>
+                  <button class="chip">Sports</button>
+                </div>
+              </div>
+              <div>
+                <p class="field-label">Popular tags</p>
+                <div class="chip-row">
+                  <button class="chip">#latebites</button>
+                  <button class="chip">#openair</button>
+                  <button class="chip">#meetup</button>
+                  <button class="chip">#lowkey</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
       <section id="capture" class="section">
         <div class="section-head">
@@ -257,12 +272,13 @@
           </div>
         </div>
       </section>
-    </main>
+      </main>
 
-    <footer class="footer">
-      <p>Spots are stored on this device only.</p>
-      <button class="cta" id="clear-spots">Clear spots</button>
-    </footer>
+      <footer class="footer">
+        <p>Spots are stored on this device only.</p>
+        <button class="cta" id="clear-spots">Clear spots</button>
+      </footer>
+    </div>
     <button class="floating-launcher" id="floating-launcher" type="button">
       Quick capture
     </button>

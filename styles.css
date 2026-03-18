@@ -1,19 +1,20 @@
 :root {
   color-scheme: light;
-  --paper: #f3ede4;
-  --paper-deep: #e6dbcc;
-  --ink: #2b2622;
-  --muted: #6d6258;
-  --clay: #c58b5a;
-  --moss: #7b8b74;
-  --stone: #b8aba0;
-  --border: rgba(45, 38, 34, 0.16);
-  --shadow: 0 18px 48px rgba(43, 38, 34, 0.12);
-  --radius-lg: 26px;
-  --radius-md: 18px;
-  --radius-sm: 12px;
+  --paper: #f6f2ec;
+  --paper-deep: #ece3d8;
+  --ink: #26221e;
+  --muted: #6b625a;
+  --clay: #c27f52;
+  --moss: #738777;
+  --stone: #bdb0a5;
+  --border: rgba(38, 34, 30, 0.12);
+  --shadow: 0 20px 60px rgba(25, 20, 16, 0.12);
+  --radius-lg: 30px;
+  --radius-md: 20px;
+  --radius-sm: 14px;
   --font-display: "Cormorant Garamond", "Times New Roman", serif;
   --font-body: "Work Sans", system-ui, sans-serif;
+  --page-width: 1120px;
 }
 
 * {
@@ -27,7 +28,7 @@ body {
   color: var(--ink);
   background-color: var(--paper);
   background-image:
-    linear-gradient(115deg, rgba(255, 255, 255, 0.5), transparent 60%),
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.65), transparent 55%),
     repeating-linear-gradient(
       0deg,
       rgba(43, 38, 34, 0.02) 0px,
@@ -43,7 +44,12 @@ body {
       transparent 6px
     );
   min-height: 100vh;
-  padding: 28px 6vw 70px;
+  padding: 28px 5vw 70px;
+}
+
+.page {
+  max-width: var(--page-width);
+  margin: 0 auto;
 }
 
 .intro {
@@ -150,10 +156,10 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  padding: 14px 24px;
+  padding: 16px 26px;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: rgba(243, 237, 228, 0.9);
+  background: rgba(246, 242, 236, 0.88);
   backdrop-filter: blur(8px);
   box-shadow: var(--shadow);
   position: sticky;
@@ -168,7 +174,7 @@ body {
 
 .brand-mark {
   font-family: var(--font-display);
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   letter-spacing: 0.05em;
 }
 
@@ -204,7 +210,7 @@ body {
   border-radius: 999px;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 12px 28px rgba(197, 139, 90, 0.3);
+  box-shadow: 0 18px 34px rgba(194, 127, 82, 0.32);
   transition: transform 0.2s ease;
 }
 
@@ -219,15 +225,15 @@ main {
 .map-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 28px;
+  gap: 32px;
   align-items: center;
 }
 
 .map-panel {
   position: relative;
-  min-height: 420px;
+  min-height: 440px;
   border-radius: var(--radius-lg);
-  background: linear-gradient(160deg, #f6f1ea, #e7d9c7);
+  background: linear-gradient(160deg, #f8f4ee, #e7d9c7);
   overflow: hidden;
   border: 1px solid rgba(40, 34, 30, 0.12);
   box-shadow: var(--shadow);
@@ -245,9 +251,9 @@ main {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(transparent 70%, rgba(120, 110, 100, 0.1)),
-    linear-gradient(90deg, transparent 65%, rgba(120, 110, 100, 0.08));
-  background-size: 100% 160px, 160px 100%;
+    linear-gradient(transparent 70%, rgba(120, 110, 100, 0.08)),
+    linear-gradient(90deg, transparent 65%, rgba(120, 110, 100, 0.06));
+  background-size: 100% 180px, 180px 100%;
   mix-blend-mode: multiply;
 }
 
@@ -285,7 +291,7 @@ main {
 
 .map-overlay {
   display: grid;
-  gap: 20px;
+  gap: 22px;
 }
 
 .eyebrow {
@@ -323,10 +329,29 @@ main {
   display: flex;
   gap: 12px;
   align-items: center;
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.82);
   border: 1px solid var(--border);
   border-radius: 999px;
   padding: 10px 14px;
+}
+
+.step-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.step-card {
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 14px 26px rgba(40, 32, 28, 0.08);
+}
+
+.step-title {
+  font-weight: 600;
+  margin-bottom: 6px;
 }
 
 .search-row input {
@@ -402,7 +427,7 @@ main {
 }
 
 .section {
-  padding: 70px 0 10px;
+  padding: 80px 0 10px;
 }
 
 .section-head {
@@ -434,7 +459,7 @@ main {
   border-radius: var(--radius-md);
   padding: 18px;
   border: 1px solid var(--border);
-  box-shadow: 0 16px 30px rgba(60, 50, 42, 0.12);
+  box-shadow: 0 18px 30px rgba(40, 32, 28, 0.1);
 }
 
 .feed-head {
@@ -522,7 +547,7 @@ main {
   border: 1px dashed rgba(67, 56, 48, 0.35);
   border-radius: var(--radius-md);
   padding: 14px;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.7);
   min-height: 160px;
   display: grid;
   place-items: center;

@@ -55,7 +55,11 @@ body {
 .intro {
   position: fixed;
   inset: 0;
-  background: #020410;
+  background:
+    radial-gradient(circle at 40% 30%, rgba(5, 14, 28, 0.5), rgba(2, 4, 16, 0.9)),
+    url("assets/space-2k.png");
+  background-size: cover;
+  background-position: center;
   z-index: 10;
   display: grid;
   place-items: center;
@@ -81,7 +85,7 @@ body {
   background-size: 120px 120px, 180px 180px, 240px 240px;
   background-position: 0 0, 40px 80px, 120px 40px;
   opacity: 0;
-  animation: starsIn 2s ease forwards;
+  animation: none;
 }
 
 .earth {

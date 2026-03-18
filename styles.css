@@ -338,23 +338,11 @@ main {
   padding: 10px 14px;
 }
 
-.step-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 14px;
-}
-
-.step-card {
-  border-radius: var(--radius-md);
-  padding: 14px 16px;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.75);
-  box-shadow: 0 14px 26px rgba(40, 32, 28, 0.08);
-}
-
-.step-title {
-  font-weight: 600;
-  margin-bottom: 6px;
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
 }
 
 .search-row input {
@@ -369,6 +357,24 @@ main {
 .quick-actions {
   display: grid;
   gap: 16px;
+}
+
+.optional {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.optional summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.optional-grid {
+  display: grid;
+  gap: 16px;
+  margin-top: 14px;
 }
 
 .chip-row {
@@ -513,6 +519,10 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 18px;
+}
+
+.spot-form .optional {
+  grid-column: 1 / -1;
 }
 
 .field {

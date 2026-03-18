@@ -93,13 +93,11 @@
           <span class="brand-mark">Spot</span>
           <span class="brand-sub">Quiet discovery for living locally</span>
         </div>
-        <nav class="nav-links">
-          <a href="#map">Map</a>
-          <a href="#capture">Capture</a>
-          <a href="#nearby">Nearby</a>
-          <a href="#match">Matches</a>
-        </nav>
-        <button class="cta" id="scroll-capture">Post a spot</button>
+      <nav class="nav-links">
+        <a href="#map">Map</a>
+        <a href="#capture">Capture</a>
+      </nav>
+      <button class="cta" id="scroll-capture">Capture</button>
       </header>
 
       <main>
@@ -121,54 +119,47 @@
               out. Over time, Spot learns your vibe and introduces you to
               like‑minded locals.
             </p>
-            <div class="step-row">
-              <div class="step-card">
-                <p class="step-title">1. Open</p>
-                <p>Launch with the widget‑like quick capture.</p>
-              </div>
-              <div class="step-card">
-                <p class="step-title">2. Capture</p>
-                <p>Photo + comment, then choose 1:1 or group.</p>
-              </div>
-              <div class="step-card">
-                <p class="step-title">3. Connect</p>
-                <p>Chats start fast. Matches improve over time.</p>
-              </div>
+            <div class="hero-actions">
+              <button class="cta" id="open-quick">Quick capture</button>
+              <button class="ghost" id="scroll-capture-ghost">Open capture form</button>
             </div>
-            <div class="search-shell">
-              <label class="field-label" for="search-input">Search</label>
-              <div class="search-row">
-                <input
-                  id="search-input"
-                  type="text"
-                  placeholder="Search your spots"
-                  aria-label="Search saved spots"
-                />
-                <button class="cta" id="search-btn">Explore</button>
-              </div>
-            </div>
-            <div class="quick-actions">
-              <div>
-                <p class="field-label">Categories</p>
-                <div class="chip-row">
-                  <button class="chip">Food</button>
-                  <button class="chip">Art</button>
-                  <button class="chip">Nature</button>
-                  <button class="chip">Music</button>
-                  <button class="chip">Tech</button>
-                  <button class="chip">Sports</button>
+            <details class="optional">
+              <summary>Optional tools</summary>
+              <div class="optional-grid">
+                <div class="search-shell">
+                  <label class="field-label" for="search-input">Search</label>
+                  <div class="search-row">
+                    <input
+                      id="search-input"
+                      type="text"
+                      placeholder="Search your spots"
+                      aria-label="Search saved spots"
+                    />
+                    <button class="cta" id="search-btn">Explore</button>
+                  </div>
+                </div>
+                <div>
+                  <p class="field-label">Categories</p>
+                  <div class="chip-row">
+                    <button class="chip">Food</button>
+                    <button class="chip">Art</button>
+                    <button class="chip">Nature</button>
+                    <button class="chip">Music</button>
+                    <button class="chip">Tech</button>
+                    <button class="chip">Sports</button>
+                  </div>
+                </div>
+                <div>
+                  <p class="field-label">Popular tags</p>
+                  <div class="chip-row">
+                    <button class="chip">#latebites</button>
+                    <button class="chip">#openair</button>
+                    <button class="chip">#meetup</button>
+                    <button class="chip">#lowkey</button>
+                  </div>
                 </div>
               </div>
-              <div>
-                <p class="field-label">Popular tags</p>
-                <div class="chip-row">
-                  <button class="chip">#latebites</button>
-                  <button class="chip">#openair</button>
-                  <button class="chip">#meetup</button>
-                  <button class="chip">#lowkey</button>
-                </div>
-              </div>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -215,22 +206,27 @@
               required
             ></textarea>
           </div>
-          <div class="field">
-            <label class="field-label" for="spot-tags">Tags</label>
-            <input
-              id="spot-tags"
-              name="tags"
-              type="text"
-              placeholder="#quiet #sunset"
-            />
-          </div>
-          <div class="field">
-            <label class="field-label" for="spot-chat">Chat preference</label>
-            <select id="spot-chat" name="chat" required>
-              <option value="1:1">1 to 1 chat</option>
-              <option value="group">Group chat</option>
-            </select>
-          </div>
+          <details class="optional">
+            <summary>Optional details</summary>
+            <div class="optional-grid">
+              <div class="field">
+                <label class="field-label" for="spot-tags">Tags</label>
+                <input
+                  id="spot-tags"
+                  name="tags"
+                  type="text"
+                  placeholder="#quiet #sunset"
+                />
+              </div>
+              <div class="field">
+                <label class="field-label" for="spot-chat">Chat preference</label>
+                <select id="spot-chat" name="chat" required>
+                  <option value="1:1">1 to 1 chat</option>
+                  <option value="group">Group chat</option>
+                </select>
+              </div>
+            </div>
+          </details>
           <button class="cta" type="submit">Send to the world</button>
         </form>
         <div class="preview" id="preview">
@@ -252,7 +248,8 @@
         <div class="feed-grid" id="nearby-feed"></div>
       </section>
 
-      <section id="match" class="section">
+      <details class="optional section" id="match">
+        <summary>Matching (optional)</summary>
         <div class="section-head">
           <h2>Matching</h2>
           <p>Post more and Spot finds people who love similar things.</p>
@@ -271,7 +268,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </details>
       </main>
 
       <footer class="footer">

@@ -19,6 +19,8 @@ const quickClose = document.querySelector('#quick-close');
 const floatingLauncher = document.querySelector('#floating-launcher');
 const quickForm = document.querySelector('#quick-form');
 const quickPhotoInput = document.querySelector('#quick-photo');
+const openQuickButton = document.querySelector('#open-quick');
+const scrollCaptureGhost = document.querySelector('#scroll-capture-ghost');
 
 const STORAGE_KEY = 'spot.entries';
 
@@ -200,6 +202,16 @@ const closeQuickCapture = () => {
 
 if (floatingLauncher) {
   floatingLauncher.addEventListener('click', openQuickCapture);
+}
+
+if (openQuickButton) {
+  openQuickButton.addEventListener('click', openQuickCapture);
+}
+
+if (scrollCaptureGhost) {
+  scrollCaptureGhost.addEventListener('click', () => {
+    document.querySelector('#capture').scrollIntoView({ behavior: 'smooth' });
+  });
 }
 
 if (quickClose) {

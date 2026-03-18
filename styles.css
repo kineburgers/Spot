@@ -64,6 +64,29 @@ body {
   display: grid;
   place-items: center;
   animation: introFade 7.2s ease forwards;
+  filter: saturate(1.15) contrast(1.1) brightness(0.95);
+}
+
+.intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 60%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.75)),
+    linear-gradient(140deg, rgba(9, 20, 36, 0.4), rgba(2, 4, 12, 0.9));
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.intro::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.06), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.04), transparent 45%);
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .intro-space {
@@ -95,7 +118,7 @@ body {
   background-image: url("assets/earth.jpg");
   background-size: cover;
   background-position: center;
-  filter: saturate(1.55) contrast(1.28) brightness(1.1);
+  filter: saturate(1.65) contrast(1.32) brightness(1.05);
   box-shadow: 0 0 40px rgba(60, 140, 255, 0.4), inset -20px -20px 60px rgba(0, 0, 0, 0.5);
   position: relative;
   animation: earthFloat 3s ease-in-out infinite;

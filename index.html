@@ -13,6 +13,80 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="intro" aria-hidden="true" id="intro">
+      <div class="intro-space">
+        <div class="stars"></div>
+        <div class="earth"></div>
+        <div class="atmosphere"></div>
+        <div class="zoom-beam"></div>
+        <div class="location-dot"></div>
+        <p class="intro-label">Zooming to your location</p>
+      </div>
+    </div>
+    <div class="quick-capture" id="quick-capture" aria-hidden="true">
+      <div class="quick-card">
+        <div class="quick-head">
+          <p class="quick-title">Quick capture</p>
+          <button class="ghost" id="quick-close" type="button">Close</button>
+        </div>
+        <form class="spot-form quick-form" id="quick-form">
+          <div class="field">
+            <label class="field-label" for="quick-photo">Photo</label>
+            <input
+              id="quick-photo"
+              name="photo"
+              type="file"
+              accept="image/*"
+              capture="environment"
+              required
+            />
+          </div>
+          <div class="field">
+            <label class="field-label" for="quick-title">Title</label>
+            <input id="quick-title" name="title" type="text" required />
+          </div>
+          <div class="field">
+            <label class="field-label" for="quick-category">Category</label>
+            <select id="quick-category" name="category" required>
+              <option value="">Choose one</option>
+              <option>Food</option>
+              <option>Art</option>
+              <option>Nature</option>
+              <option>Music</option>
+              <option>Tech</option>
+              <option>Sports</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field-label" for="quick-comment">Comment</label>
+            <textarea
+              id="quick-comment"
+              name="comment"
+              rows="3"
+              placeholder="What did you notice?"
+              required
+            ></textarea>
+          </div>
+          <div class="field">
+            <label class="field-label" for="quick-tags">Tags</label>
+            <input
+              id="quick-tags"
+              name="tags"
+              type="text"
+              placeholder="#quiet #sunset"
+            />
+          </div>
+          <div class="field">
+            <label class="field-label" for="quick-chat">Chat preference</label>
+            <select id="quick-chat" name="chat" required>
+              <option value="1:1">1 to 1 chat</option>
+              <option value="group">Group chat</option>
+            </select>
+          </div>
+          <button class="cta" type="submit">Send to the world</button>
+        </form>
+      </div>
+    </div>
     <header class="top-bar">
       <div class="brand">
         <span class="brand-mark">Spot</span>
@@ -189,6 +263,9 @@
       <p>Spots are stored on this device only.</p>
       <button class="cta" id="clear-spots">Clear spots</button>
     </footer>
+    <button class="floating-launcher" id="floating-launcher" type="button">
+      Quick capture
+    </button>
 
     <script src="app.js"></script>
   </body>

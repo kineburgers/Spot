@@ -13,6 +13,12 @@ const previewCard = document.querySelector('#preview-card');
 const matchCount = document.querySelector('#match-count');
 const matchText = document.querySelector('#match-text');
 const matchFill = document.querySelector('#match-fill');
+const intro = document.querySelector('#intro');
+const quickCapture = document.querySelector('#quick-capture');
+const quickClose = document.querySelector('#quick-close');
+const floatingLauncher = document.querySelector('#floating-launcher');
+const quickForm = document.querySelector('#quick-form');
+const quickPhotoInput = document.querySelector('#quick-photo');
 
 const STORAGE_KEY = 'spot.entries';
 
@@ -180,6 +186,34 @@ if (scrollCaptureButton) {
   });
 }
 
+const openQuickCapture = () => {
+  if (quickCapture) {
+    quickCapture.classList.add('active');
+  }
+};
+
+const closeQuickCapture = () => {
+  if (quickCapture) {
+    quickCapture.classList.remove('active');
+  }
+};
+
+if (floatingLauncher) {
+  floatingLauncher.addEventListener('click', openQuickCapture);
+}
+
+if (quickClose) {
+  quickClose.addEventListener('click', closeQuickCapture);
+}
+
+if (quickCapture) {
+  quickCapture.addEventListener('click', (event) => {
+    if (event.target === quickCapture) {
+      closeQuickCapture();
+    }
+  });
+}
+
 if (spotForm) {
   spotForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -213,6 +247,39 @@ if (spotForm) {
   });
 }
 
+if (quickForm) {
+  quickForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const formData = new FormData(quickForm);
+    const file = quickPhotoInput ? quickPhotoInput.files[0] : null;
+
+    const handleSave = (photoData) => {
+      const newSpot = {
+        title: formData.get('title').toString().trim(),
+        category: formData.get('category').toString().trim(),
+        comment: formData.get('comment').toString().trim(),
+        tags: parseTags(formData.get('tags').toString().trim()),
+        chat: formData.get('chat').toString().trim(),
+        photo: photoData
+      };
+
+      spots = [newSpot, ...spots];
+      saveSpots(spots);
+      renderFeed(spots);
+      quickForm.reset();
+      closeQuickCapture();
+    };
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => handleSave(reader.result);
+      reader.readAsDataURL(file);
+    } else {
+      handleSave('');
+    }
+  });
+}
+
 if (clearButton) {
   clearButton.addEventListener('click', () => {
     spots = [];
@@ -220,4 +287,10 @@ if (clearButton) {
     renderFeed(spots);
     previewImage(null);
   });
+}
+
+if (intro) {
+  window.setTimeout(() => {
+    intro.remove();
+  }, 7400);
 }

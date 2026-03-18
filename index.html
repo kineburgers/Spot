@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dim — Discover Nearby</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+
+    <header class="top-bar">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <div>
+          <p class="brand-name">Dim</p>
+          <p class="brand-tag">Local discovery and social vibe</p>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#feed">Feed</a>
+        <a href="#categories">Categories</a>
+        <a href="#map">Map</a>
+        <a href="#profiles">Profiles</a>
+      </nav>
+      <button class="cta">Get the app</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-text">
+          <p class="pill">Discover whats around you</p>
+          <h1>
+            Find the people, places, and moments that make your city feel alive.
+          </h1>
+          <p class="subtext">
+            Dim blends discovery, social, and local energy into one feed. Search
+            interests, explore nearby, and follow vibes in real time.
+          </p>
+          <div class="search-card">
+            <div class="search-row">
+              <span class="search-icon">&#128269;</span>
+              <input
+                type="text"
+                placeholder="Search interests, places, people"
+                aria-label="Search interests, places, people"
+              />
+              <button class="search-btn">Explore</button>
+            </div>
+            <div class="tag-row">
+              <button class="tag">Street food</button>
+              <button class="tag">Indie bands</button>
+              <button class="tag">Gallery openings</button>
+              <button class="tag">Weekend hikes</button>
+              <button class="tag">Pickup soccer</button>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="phone-shell">
+            <div class="phone-head">
+              <span>Live nearby</span>
+              <span class="signal">&#9679; 2.4k</span>
+            </div>
+            <div class="mini-card">
+              <p class="mini-title">Sunset skate jam</p>
+              <p class="mini-meta">0.8 mi · Sports · 6 friends going</p>
+              <div class="mini-tags">
+                <span>#park</span>
+                <span>#afterwork</span>
+                <span>#music</span>
+              </div>
+            </div>
+            <div class="mini-card dark">
+              <p class="mini-title">Analog photo walk</p>
+              <p class="mini-meta">1.4 mi · Art · 12 spots left</p>
+              <div class="mini-tags">
+                <span>#film</span>
+                <span>#street</span>
+                <span>#meetup</span>
+              </div>
+            </div>
+            <div class="mini-card">
+              <p class="mini-title">Karaoke noodle bar</p>
+              <p class="mini-meta">0.3 mi · Food · Live now</p>
+              <div class="mini-tags">
+                <span>#latebite</span>
+                <span>#singalong</span>
+                <span>#ramen</span>
+              </div>
+            </div>
+          </div>
+          <div class="stat-grid">
+            <div class="stat">
+              <p class="stat-label">Active now</p>
+              <p class="stat-value">2,486</p>
+            </div>
+            <div class="stat">
+              <p class="stat-label">New spots</p>
+              <p class="stat-value">118</p>
+            </div>
+            <div class="stat">
+              <p class="stat-label">Friends nearby</p>
+              <p class="stat-value">36</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="categories" class="section">
+        <div class="section-head">
+          <h2>Categories</h2>
+          <p>Pick a lane or blend them all. Dim keeps you moving.</p>
+        </div>
+        <div class="category-grid">
+          <article class="category-card">
+            <h3>Food</h3>
+            <p>Pop-ups, late-night eats, chef takeovers.</p>
+          </article>
+          <article class="category-card">
+            <h3>Art</h3>
+            <p>Openings, murals, maker collectives.</p>
+          </article>
+          <article class="category-card">
+            <h3>Nature</h3>
+            <p>Golden hour trails and water escapes.</p>
+          </article>
+          <article class="category-card">
+            <h3>Music</h3>
+            <p>Basement sets to rooftop sessions.</p>
+          </article>
+          <article class="category-card">
+            <h3>Tech</h3>
+            <p>Meetups, launches, co-working vibes.</p>
+          </article>
+          <article class="category-card">
+            <h3>Sports</h3>
+            <p>Pickup games, watch parties, runs.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="map" class="section split">
+        <div>
+          <h2>Map view</h2>
+          <p>
+            Coming soon: a live map that pulses with nearby discoveries. Tap a
+            spot, see the crowd, and join in.
+          </p>
+          <div class="coming-soon">Map view is on the way</div>
+        </div>
+        <div class="map-mock">
+          <div class="map-grid">
+            <span class="pin"></span>
+            <span class="pin"></span>
+            <span class="pin"></span>
+            <span class="pin"></span>
+          </div>
+          <div class="map-card">
+            <p class="map-title">Midnight art market</p>
+            <p class="map-meta">0.6 mi · Art · 214 going</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="feed" class="section">
+        <div class="section-head">
+          <h2>Nearby feed</h2>
+          <p>Posts from locals you might want to follow.</p>
+        </div>
+        <div class="feed-grid">
+          <article class="feed-card">
+            <div class="feed-head">
+              <div class="avatar"></div>
+              <div>
+                <p class="feed-name">Juno Park</p>
+                <p class="feed-handle">@junopark · 0.5 mi</p>
+              </div>
+              <button class="ghost">Follow</button>
+            </div>
+            <p class="feed-text">
+              Found a hidden rooftop jazz set. Free entry before 9.
+            </p>
+            <div class="feed-tags">
+              <span>#music</span>
+              <span>#rooftop</span>
+              <span>#live</span>
+            </div>
+          </article>
+          <article class="feed-card">
+            <div class="feed-head">
+              <div class="avatar alt"></div>
+              <div>
+                <p class="feed-name">Luis Ortega</p>
+                <p class="feed-handle">@luiso · 1.2 mi</p>
+              </div>
+              <button class="ghost">Follow</button>
+            </div>
+            <p class="feed-text">
+              New ramen pop-up, line is short right now. Worth it.
+            </p>
+            <div class="feed-tags">
+              <span>#food</span>
+              <span>#pop-up</span>
+              <span>#ramen</span>
+            </div>
+          </article>
+          <article class="feed-card">
+            <div class="feed-head">
+              <div class="avatar"></div>
+              <div>
+                <p class="feed-name">Maya Chen</p>
+                <p class="feed-handle">@mayac · 0.2 mi</p>
+              </div>
+              <button class="ghost">Follow</button>
+            </div>
+            <p class="feed-text">
+              Sunrise trail run tomorrow, 6:15 am. Easy pace.
+            </p>
+            <div class="feed-tags">
+              <span>#nature</span>
+              <span>#run</span>
+              <span>#sunrise</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="profiles" class="section">
+        <div class="section-head">
+          <h2>User profiles</h2>
+          <p>Build your discovery stats and show your city your style.</p>
+        </div>
+        <div class="profile-grid">
+          <article class="profile-card">
+            <div class="profile-top">
+              <div class="avatar large"></div>
+              <div>
+                <p class="profile-name">Imani Reed</p>
+                <p class="profile-handle">@imani · Food &amp; Art</p>
+              </div>
+            </div>
+            <div class="profile-stats">
+              <div>
+                <p class="stat-number">12.4k</p>
+                <p class="stat-label">Followers</p>
+              </div>
+              <div>
+                <p class="stat-number">518</p>
+                <p class="stat-label">Following</p>
+              </div>
+              <div>
+                <p class="stat-number">94</p>
+                <p class="stat-label">Spots</p>
+              </div>
+            </div>
+            <button class="cta secondary">View profile</button>
+          </article>
+          <article class="profile-card">
+            <div class="profile-top">
+              <div class="avatar large alt"></div>
+              <div>
+                <p class="profile-name">Darian Wells</p>
+                <p class="profile-handle">@darian · Tech &amp; Music</p>
+              </div>
+            </div>
+            <div class="profile-stats">
+              <div>
+                <p class="stat-number">8.1k</p>
+                <p class="stat-label">Followers</p>
+              </div>
+              <div>
+                <p class="stat-number">341</p>
+                <p class="stat-label">Following</p>
+              </div>
+              <div>
+                <p class="stat-number">57</p>
+                <p class="stat-label">Spots</p>
+              </div>
+            </div>
+            <button class="cta secondary">View profile</button>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Dim is in private beta. Join the waitlist to start discovering.</p>
+      <button class="cta">Request invite</button>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -87,79 +87,111 @@
         </form>
       </div>
     </div>
+    <div class="settings-drawer" id="settings-drawer" aria-hidden="true">
+      <div class="settings-card">
+        <div class="quick-head">
+          <p class="quick-title">Settings</p>
+          <button class="ghost" id="settings-close" type="button">Close</button>
+        </div>
+        <div class="settings-grid">
+          <div class="search-shell">
+            <label class="field-label" for="search-input">Search</label>
+            <div class="search-row">
+              <input
+                id="search-input"
+                type="text"
+                placeholder="Search your spots"
+                aria-label="Search saved spots"
+              />
+              <button class="cta" id="search-btn">Explore</button>
+            </div>
+          </div>
+          <div>
+            <p class="field-label">Default chat</p>
+            <select id="default-chat" class="settings-select">
+              <option value="1:1">1 to 1 chat</option>
+              <option value="group">Group chat</option>
+            </select>
+          </div>
+          <div>
+            <p class="field-label">Categories</p>
+            <div class="chip-row">
+              <button class="chip">Food</button>
+              <button class="chip">Art</button>
+              <button class="chip">Nature</button>
+              <button class="chip">Music</button>
+              <button class="chip">Tech</button>
+              <button class="chip">Sports</button>
+            </div>
+          </div>
+          <div>
+            <p class="field-label">Popular tags</p>
+            <div class="chip-row">
+              <button class="chip">#latebites</button>
+              <button class="chip">#openair</button>
+              <button class="chip">#meetup</button>
+              <button class="chip">#lowkey</button>
+            </div>
+          </div>
+          <div>
+            <p class="field-label">Matching</p>
+            <div class="match-panel" id="match-panel">
+              <div class="match-meter">
+                <span id="match-count">0</span>
+                <p>Spots posted</p>
+              </div>
+              <div class="match-copy">
+                <p id="match-text">
+                  Share three spots to unlock your first suggested friends.
+                </p>
+                <div class="match-bar">
+                  <span id="match-fill"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="page">
       <header class="top-bar">
         <div class="brand">
           <span class="brand-mark">Spot</span>
-        <span class="brand-sub">Local discovery</span>
+          <span class="brand-sub">Local discovery</span>
         </div>
       <nav class="nav-links">
         <a href="#map">Map</a>
         <a href="#capture">Capture</a>
       </nav>
-      <button class="cta" id="scroll-capture">Capture</button>
-      </header>
+      <div class="top-actions">
+        <button class="ghost" id="open-settings" type="button">Settings</button>
+        <button class="cta" id="scroll-capture">Capture</button>
+      </div>
+    </header>
 
       <main>
-        <section id="map" class="map-hero">
-          <div class="map-panel">
-            <div class="map-texture"></div>
-            <div class="map-lines"></div>
-            <div class="map-markers" id="map-markers"></div>
-            <div class="map-card" id="map-card">
-              <p class="map-title">No spots yet</p>
-              <p class="map-meta">Post your first spot to begin.</p>
-            </div>
+      <section id="map" class="map-hero">
+        <div class="map-panel">
+          <div class="map-texture"></div>
+          <div class="map-lines"></div>
+          <div class="map-markers" id="map-markers"></div>
+          <div class="map-card" id="map-card">
+            <p class="map-title">No spots yet</p>
+            <p class="map-meta">Post your first spot to begin.</p>
           </div>
           <div class="map-overlay">
             <p class="eyebrow">Spot</p>
             <h1>Capture once. Share instantly.</h1>
             <p class="subtext">
-              Take a photo, add a note, choose 1:1 or group, and send.
+              Take a photo, add a note, and send.
             </p>
             <div class="hero-actions">
               <button class="cta" id="open-quick">Quick capture</button>
               <button class="ghost" id="scroll-capture-ghost">Open capture form</button>
             </div>
-            <details class="optional">
-              <summary>Optional tools</summary>
-              <div class="optional-grid">
-                <div class="search-shell">
-                  <label class="field-label" for="search-input">Search</label>
-                  <div class="search-row">
-                    <input
-                      id="search-input"
-                      type="text"
-                      placeholder="Search your spots"
-                      aria-label="Search saved spots"
-                    />
-                    <button class="cta" id="search-btn">Explore</button>
-                  </div>
-                </div>
-                <div>
-                  <p class="field-label">Categories</p>
-                  <div class="chip-row">
-                    <button class="chip">Food</button>
-                    <button class="chip">Art</button>
-                    <button class="chip">Nature</button>
-                    <button class="chip">Music</button>
-                    <button class="chip">Tech</button>
-                    <button class="chip">Sports</button>
-                  </div>
-                </div>
-                <div>
-                  <p class="field-label">Popular tags</p>
-                  <div class="chip-row">
-                    <button class="chip">#latebites</button>
-                    <button class="chip">#openair</button>
-                    <button class="chip">#meetup</button>
-                    <button class="chip">#lowkey</button>
-                  </div>
-                </div>
-              </div>
-            </details>
           </div>
-        </section>
+        </div>
+      </section>
 
       <section id="capture" class="section">
         <div class="section-head">
@@ -204,27 +236,6 @@
               required
             ></textarea>
           </div>
-          <details class="optional">
-            <summary>Optional details</summary>
-            <div class="optional-grid">
-              <div class="field">
-                <label class="field-label" for="spot-tags">Tags</label>
-                <input
-                  id="spot-tags"
-                  name="tags"
-                  type="text"
-                  placeholder="#quiet #sunset"
-                />
-              </div>
-              <div class="field">
-                <label class="field-label" for="spot-chat">Chat preference</label>
-                <select id="spot-chat" name="chat" required>
-                  <option value="1:1">1 to 1 chat</option>
-                  <option value="group">Group chat</option>
-                </select>
-              </div>
-            </div>
-          </details>
           <button class="cta" type="submit">Send to the world</button>
         </form>
         <div class="preview" id="preview">
@@ -246,27 +257,6 @@
         <div class="feed-grid" id="nearby-feed"></div>
       </section>
 
-      <details class="optional section" id="match">
-        <summary>Matching (optional)</summary>
-        <div class="section-head">
-          <h2>Matching</h2>
-          <p>Post more and Spot finds people who love similar things.</p>
-        </div>
-        <div class="match-panel" id="match-panel">
-          <div class="match-meter">
-            <span id="match-count">0</span>
-            <p>Spots posted</p>
-          </div>
-          <div class="match-copy">
-            <p id="match-text">
-              Share three spots to unlock your first suggested friends.
-            </p>
-            <div class="match-bar">
-              <span id="match-fill"></span>
-            </div>
-          </div>
-        </div>
-      </details>
       </main>
 
       <footer class="footer">

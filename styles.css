@@ -179,6 +179,12 @@ body {
   position: sticky;
   top: 20px;
   z-index: 4;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.top-bar.hidden {
+  transform: translateY(-120%);
+  opacity: 0;
 }
 
 .brand {
@@ -201,6 +207,12 @@ body {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+}
+
+.top-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .nav-links a {
@@ -237,15 +249,14 @@ main {
 }
 
 .map-hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 30px;
-  align-items: center;
+  display: block;
+  margin-bottom: 40px;
 }
 
 .map-panel {
   position: relative;
-  min-height: 420px;
+  min-height: 70vh;
+  height: 80vh;
   border-radius: var(--radius-lg);
   background: #f5f4f1;
   overflow: hidden;
@@ -300,8 +311,16 @@ main {
 }
 
 .map-overlay {
+  position: absolute;
+  left: 32px;
+  bottom: 32px;
   display: grid;
-  gap: 22px;
+  gap: 16px;
+  max-width: 360px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
 }
 
 .eyebrow {
@@ -366,22 +385,44 @@ main {
   gap: 16px;
 }
 
-.optional {
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 14px 16px;
-  background: #fff;
-}
-
-.optional summary {
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.optional-grid {
+.settings-drawer {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.35);
   display: grid;
-  gap: 16px;
-  margin-top: 14px;
+  place-items: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 9;
+}
+
+.settings-drawer.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.settings-card {
+  width: min(640px, 100%);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.settings-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.settings-select {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  background: #fff;
+  font-family: var(--font-body);
 }
 
 .chip-row {
@@ -526,10 +567,6 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 18px;
-}
-
-.spot-form .optional {
-  grid-column: 1 / -1;
 }
 
 .field {

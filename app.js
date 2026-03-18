@@ -21,6 +21,11 @@ const quickForm = document.querySelector('#quick-form');
 const quickPhotoInput = document.querySelector('#quick-photo');
 const openQuickButton = document.querySelector('#open-quick');
 const scrollCaptureGhost = document.querySelector('#scroll-capture-ghost');
+const settingsDrawer = document.querySelector('#settings-drawer');
+const settingsClose = document.querySelector('#settings-close');
+const openSettings = document.querySelector('#open-settings');
+const topBar = document.querySelector('.top-bar');
+const defaultChat = document.querySelector('#default-chat');
 
 const STORAGE_KEY = 'spot.entries';
 
@@ -214,6 +219,34 @@ if (scrollCaptureGhost) {
   });
 }
 
+const openSettingsDrawer = () => {
+  if (settingsDrawer) {
+    settingsDrawer.classList.add('active');
+  }
+};
+
+const closeSettingsDrawer = () => {
+  if (settingsDrawer) {
+    settingsDrawer.classList.remove('active');
+  }
+};
+
+if (openSettings) {
+  openSettings.addEventListener('click', openSettingsDrawer);
+}
+
+if (settingsClose) {
+  settingsClose.addEventListener('click', closeSettingsDrawer);
+}
+
+if (settingsDrawer) {
+  settingsDrawer.addEventListener('click', (event) => {
+    if (event.target === settingsDrawer) {
+      closeSettingsDrawer();
+    }
+  });
+}
+
 if (quickClose) {
   quickClose.addEventListener('click', closeQuickCapture);
 }
@@ -237,8 +270,8 @@ if (spotForm) {
         title: formData.get('title').toString().trim(),
         category: formData.get('category').toString().trim(),
         comment: formData.get('comment').toString().trim(),
-        tags: parseTags(formData.get('tags').toString().trim()),
-        chat: formData.get('chat').toString().trim(),
+        tags: [],
+        chat: defaultChat ? defaultChat.value : '1:1',
         photo: photoData
       };
 
@@ -259,6 +292,18 @@ if (spotForm) {
   });
 }
 
+if (topBar) {
+  const onScroll = () => {
+    if (window.scrollY > 40) {
+      topBar.classList.remove('hidden');
+    } else {
+      topBar.classList.add('hidden');
+    }
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll);
+}
+
 if (quickForm) {
   quickForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -270,8 +315,8 @@ if (quickForm) {
         title: formData.get('title').toString().trim(),
         category: formData.get('category').toString().trim(),
         comment: formData.get('comment').toString().trim(),
-        tags: parseTags(formData.get('tags').toString().trim()),
-        chat: formData.get('chat').toString().trim(),
+        tags: [],
+        chat: defaultChat ? defaultChat.value : '1:1',
         photo: photoData
       };
 

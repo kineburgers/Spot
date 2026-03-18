@@ -3,297 +3,191 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Dim — Discover Nearby</title>
+    <title>Spot — Local Discovery</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="orb orb-one"></div>
-    <div class="orb orb-two"></div>
-
     <header class="top-bar">
       <div class="brand">
-        <span class="brand-dot"></span>
-        <div>
-          <p class="brand-name">Dim</p>
-          <p class="brand-tag">Local discovery and social vibe</p>
-        </div>
+        <span class="brand-mark">Spot</span>
+        <span class="brand-sub">Quiet discovery for living locally</span>
       </div>
       <nav class="nav-links">
-        <a href="#feed">Feed</a>
-        <a href="#categories">Categories</a>
         <a href="#map">Map</a>
-        <a href="#profiles">Profiles</a>
+        <a href="#capture">Capture</a>
+        <a href="#nearby">Nearby</a>
+        <a href="#match">Matches</a>
       </nav>
-      <button class="cta">Get the app</button>
+      <button class="cta" id="scroll-capture">Post a spot</button>
     </header>
 
     <main>
-      <section class="hero">
-        <div class="hero-text">
-          <p class="pill">Discover whats around you</p>
-          <h1>
-            Find the people, places, and moments that make your city feel alive.
-          </h1>
+      <section id="map" class="map-hero">
+        <div class="map-panel">
+          <div class="map-texture"></div>
+          <div class="map-lines"></div>
+          <div class="map-markers" id="map-markers"></div>
+          <div class="map-card" id="map-card">
+            <p class="map-title">No spots yet</p>
+            <p class="map-meta">Post your first spot to begin.</p>
+          </div>
+        </div>
+        <div class="map-overlay">
+          <p class="eyebrow">Your flow</p>
+          <h1>Open Spot, capture the moment, share it instantly.</h1>
           <p class="subtext">
-            Dim blends discovery, social, and local energy into one feed. Search
-            interests, explore nearby, and follow vibes in real time.
+            Take a photo, add a note, choose how you want to chat, and send it
+            out. Over time, Spot learns your vibe and introduces you to
+            like‑minded locals.
           </p>
-          <div class="search-card">
+          <div class="search-shell">
+            <label class="field-label" for="search-input">Search</label>
             <div class="search-row">
-              <span class="search-icon">&#128269;</span>
               <input
+                id="search-input"
                 type="text"
-                placeholder="Search interests, places, people"
-                aria-label="Search interests, places, people"
+                placeholder="Search your spots"
+                aria-label="Search saved spots"
               />
-              <button class="search-btn">Explore</button>
-            </div>
-            <div class="tag-row">
-              <button class="tag">Street food</button>
-              <button class="tag">Indie bands</button>
-              <button class="tag">Gallery openings</button>
-              <button class="tag">Weekend hikes</button>
-              <button class="tag">Pickup soccer</button>
+              <button class="cta" id="search-btn">Explore</button>
             </div>
           </div>
-        </div>
-        <div class="hero-visual">
-          <div class="phone-shell">
-            <div class="phone-head">
-              <span>Live nearby</span>
-              <span class="signal">&#9679; 2.4k</span>
-            </div>
-            <div class="mini-card">
-              <p class="mini-title">Sunset skate jam</p>
-              <p class="mini-meta">0.8 mi · Sports · 6 friends going</p>
-              <div class="mini-tags">
-                <span>#park</span>
-                <span>#afterwork</span>
-                <span>#music</span>
+          <div class="quick-actions">
+            <div>
+              <p class="field-label">Categories</p>
+              <div class="chip-row">
+                <button class="chip">Food</button>
+                <button class="chip">Art</button>
+                <button class="chip">Nature</button>
+                <button class="chip">Music</button>
+                <button class="chip">Tech</button>
+                <button class="chip">Sports</button>
               </div>
             </div>
-            <div class="mini-card dark">
-              <p class="mini-title">Analog photo walk</p>
-              <p class="mini-meta">1.4 mi · Art · 12 spots left</p>
-              <div class="mini-tags">
-                <span>#film</span>
-                <span>#street</span>
-                <span>#meetup</span>
+            <div>
+              <p class="field-label">Popular tags</p>
+              <div class="chip-row">
+                <button class="chip">#latebites</button>
+                <button class="chip">#openair</button>
+                <button class="chip">#meetup</button>
+                <button class="chip">#lowkey</button>
               </div>
-            </div>
-            <div class="mini-card">
-              <p class="mini-title">Karaoke noodle bar</p>
-              <p class="mini-meta">0.3 mi · Food · Live now</p>
-              <div class="mini-tags">
-                <span>#latebite</span>
-                <span>#singalong</span>
-                <span>#ramen</span>
-              </div>
-            </div>
-          </div>
-          <div class="stat-grid">
-            <div class="stat">
-              <p class="stat-label">Active now</p>
-              <p class="stat-value">2,486</p>
-            </div>
-            <div class="stat">
-              <p class="stat-label">New spots</p>
-              <p class="stat-value">118</p>
-            </div>
-            <div class="stat">
-              <p class="stat-label">Friends nearby</p>
-              <p class="stat-value">36</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="categories" class="section">
+      <section id="capture" class="section">
         <div class="section-head">
-          <h2>Categories</h2>
-          <p>Pick a lane or blend them all. Dim keeps you moving.</p>
+          <h2>Capture a spot</h2>
+          <p>Snap something awesome, add a note, send it out.</p>
         </div>
-        <div class="category-grid">
-          <article class="category-card">
-            <h3>Food</h3>
-            <p>Pop-ups, late-night eats, chef takeovers.</p>
-          </article>
-          <article class="category-card">
-            <h3>Art</h3>
-            <p>Openings, murals, maker collectives.</p>
-          </article>
-          <article class="category-card">
-            <h3>Nature</h3>
-            <p>Golden hour trails and water escapes.</p>
-          </article>
-          <article class="category-card">
-            <h3>Music</h3>
-            <p>Basement sets to rooftop sessions.</p>
-          </article>
-          <article class="category-card">
-            <h3>Tech</h3>
-            <p>Meetups, launches, co-working vibes.</p>
-          </article>
-          <article class="category-card">
-            <h3>Sports</h3>
-            <p>Pickup games, watch parties, runs.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="map" class="section split">
-        <div>
-          <h2>Map view</h2>
-          <p>
-            Coming soon: a live map that pulses with nearby discoveries. Tap a
-            spot, see the crowd, and join in.
-          </p>
-          <div class="coming-soon">Map view is on the way</div>
-        </div>
-        <div class="map-mock">
-          <div class="map-grid">
-            <span class="pin"></span>
-            <span class="pin"></span>
-            <span class="pin"></span>
-            <span class="pin"></span>
+        <form class="spot-form" id="spot-form">
+          <div class="field">
+            <label class="field-label" for="spot-photo">Photo</label>
+            <input
+              id="spot-photo"
+              name="photo"
+              type="file"
+              accept="image/*"
+              capture="environment"
+              required
+            />
           </div>
-          <div class="map-card">
-            <p class="map-title">Midnight art market</p>
-            <p class="map-meta">0.6 mi · Art · 214 going</p>
+          <div class="field">
+            <label class="field-label" for="spot-title">Title</label>
+            <input id="spot-title" name="title" type="text" required />
+          </div>
+          <div class="field">
+            <label class="field-label" for="spot-category">Category</label>
+            <select id="spot-category" name="category" required>
+              <option value="">Choose one</option>
+              <option>Food</option>
+              <option>Art</option>
+              <option>Nature</option>
+              <option>Music</option>
+              <option>Tech</option>
+              <option>Sports</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field-label" for="spot-comment">Comment</label>
+            <textarea
+              id="spot-comment"
+              name="comment"
+              rows="3"
+              placeholder="What did you notice?"
+              required
+            ></textarea>
+          </div>
+          <div class="field">
+            <label class="field-label" for="spot-tags">Tags</label>
+            <input
+              id="spot-tags"
+              name="tags"
+              type="text"
+              placeholder="#quiet #sunset"
+            />
+          </div>
+          <div class="field">
+            <label class="field-label" for="spot-chat">Chat preference</label>
+            <select id="spot-chat" name="chat" required>
+              <option value="1:1">1 to 1 chat</option>
+              <option value="group">Group chat</option>
+            </select>
+          </div>
+          <button class="cta" type="submit">Send to the world</button>
+        </form>
+        <div class="preview" id="preview">
+          <p class="field-label">Preview</p>
+          <div class="preview-card" id="preview-card">
+            <p>No photo yet.</p>
           </div>
         </div>
       </section>
 
-      <section id="feed" class="section">
+      <section id="nearby" class="section">
         <div class="section-head">
-          <h2>Nearby feed</h2>
-          <p>Posts from locals you might want to follow.</p>
+          <h2>Nearby now</h2>
+          <p>Your posts show up here and on the map.</p>
         </div>
-        <div class="feed-grid">
-          <article class="feed-card">
-            <div class="feed-head">
-              <div class="avatar"></div>
-              <div>
-                <p class="feed-name">Juno Park</p>
-                <p class="feed-handle">@junopark · 0.5 mi</p>
-              </div>
-              <button class="ghost">Follow</button>
-            </div>
-            <p class="feed-text">
-              Found a hidden rooftop jazz set. Free entry before 9.
-            </p>
-            <div class="feed-tags">
-              <span>#music</span>
-              <span>#rooftop</span>
-              <span>#live</span>
-            </div>
-          </article>
-          <article class="feed-card">
-            <div class="feed-head">
-              <div class="avatar alt"></div>
-              <div>
-                <p class="feed-name">Luis Ortega</p>
-                <p class="feed-handle">@luiso · 1.2 mi</p>
-              </div>
-              <button class="ghost">Follow</button>
-            </div>
-            <p class="feed-text">
-              New ramen pop-up, line is short right now. Worth it.
-            </p>
-            <div class="feed-tags">
-              <span>#food</span>
-              <span>#pop-up</span>
-              <span>#ramen</span>
-            </div>
-          </article>
-          <article class="feed-card">
-            <div class="feed-head">
-              <div class="avatar"></div>
-              <div>
-                <p class="feed-name">Maya Chen</p>
-                <p class="feed-handle">@mayac · 0.2 mi</p>
-              </div>
-              <button class="ghost">Follow</button>
-            </div>
-            <p class="feed-text">
-              Sunrise trail run tomorrow, 6:15 am. Easy pace.
-            </p>
-            <div class="feed-tags">
-              <span>#nature</span>
-              <span>#run</span>
-              <span>#sunrise</span>
-            </div>
-          </article>
+        <div class="empty-state" id="nearby-empty">
+          No posts yet. Capture your first spot to start.
         </div>
+        <div class="feed-grid" id="nearby-feed"></div>
       </section>
 
-      <section id="profiles" class="section">
+      <section id="match" class="section">
         <div class="section-head">
-          <h2>User profiles</h2>
-          <p>Build your discovery stats and show your city your style.</p>
+          <h2>Matching</h2>
+          <p>Post more and Spot finds people who love similar things.</p>
         </div>
-        <div class="profile-grid">
-          <article class="profile-card">
-            <div class="profile-top">
-              <div class="avatar large"></div>
-              <div>
-                <p class="profile-name">Imani Reed</p>
-                <p class="profile-handle">@imani · Food &amp; Art</p>
-              </div>
+        <div class="match-panel" id="match-panel">
+          <div class="match-meter">
+            <span id="match-count">0</span>
+            <p>Spots posted</p>
+          </div>
+          <div class="match-copy">
+            <p id="match-text">
+              Share three spots to unlock your first suggested friends.
+            </p>
+            <div class="match-bar">
+              <span id="match-fill"></span>
             </div>
-            <div class="profile-stats">
-              <div>
-                <p class="stat-number">12.4k</p>
-                <p class="stat-label">Followers</p>
-              </div>
-              <div>
-                <p class="stat-number">518</p>
-                <p class="stat-label">Following</p>
-              </div>
-              <div>
-                <p class="stat-number">94</p>
-                <p class="stat-label">Spots</p>
-              </div>
-            </div>
-            <button class="cta secondary">View profile</button>
-          </article>
-          <article class="profile-card">
-            <div class="profile-top">
-              <div class="avatar large alt"></div>
-              <div>
-                <p class="profile-name">Darian Wells</p>
-                <p class="profile-handle">@darian · Tech &amp; Music</p>
-              </div>
-            </div>
-            <div class="profile-stats">
-              <div>
-                <p class="stat-number">8.1k</p>
-                <p class="stat-label">Followers</p>
-              </div>
-              <div>
-                <p class="stat-number">341</p>
-                <p class="stat-label">Following</p>
-              </div>
-              <div>
-                <p class="stat-number">57</p>
-                <p class="stat-label">Spots</p>
-              </div>
-            </div>
-            <button class="cta secondary">View profile</button>
-          </article>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <p>Dim is in private beta. Join the waitlist to start discovering.</p>
-      <button class="cta">Request invite</button>
+      <p>Spots are stored on this device only.</p>
+      <button class="cta" id="clear-spots">Clear spots</button>
     </footer>
 
     <script src="app.js"></script>

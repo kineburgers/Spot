@@ -91,7 +91,7 @@ body {
   background-image: url("assets/earth.jpg");
   background-size: cover;
   background-position: center;
-  filter: saturate(1.25) contrast(1.12) brightness(1.06);
+  filter: saturate(1.55) contrast(1.28) brightness(1.1);
   box-shadow: 0 0 40px rgba(60, 140, 255, 0.4), inset -20px -20px 60px rgba(0, 0, 0, 0.5);
   position: relative;
   animation: earthFloat 3s ease-in-out infinite;

@@ -1,7 +1,3 @@
-const chips = document.querySelectorAll('.chip');
-const searchInput = document.querySelector('#search-input');
-const searchButton = document.querySelector('#search-btn');
-const scrollCaptureButton = document.querySelector('#scroll-capture');
 const spotForm = document.querySelector('#spot-form');
 const nearbyFeed = document.querySelector('#nearby-feed');
 const nearbyEmpty = document.querySelector('#nearby-empty');
@@ -10,24 +6,16 @@ const mapCard = document.querySelector('#map-card');
 const clearButton = document.querySelector('#clear-spots');
 const photoInput = document.querySelector('#spot-photo');
 const previewCard = document.querySelector('#preview-card');
-const matchCount = document.querySelector('#match-count');
-const matchText = document.querySelector('#match-text');
-const matchFill = document.querySelector('#match-fill');
 const intro = document.querySelector('#intro');
 const quickCapture = document.querySelector('#quick-capture');
 const quickClose = document.querySelector('#quick-close');
-const floatingLauncher = document.querySelector('#floating-launcher');
+const cameraLauncher = document.querySelector('#camera-launcher');
 const quickForm = document.querySelector('#quick-form');
 const quickPhotoInput = document.querySelector('#quick-photo');
-const openQuickButton = document.querySelector('#open-quick');
-const scrollCaptureGhost = document.querySelector('#scroll-capture-ghost');
-const settingsDrawer = document.querySelector('#settings-drawer');
-const settingsClose = document.querySelector('#settings-close');
-const openSettings = document.querySelector('#open-settings');
-const topBar = document.querySelector('.top-bar');
-const defaultChat = document.querySelector('#default-chat');
+const themeButtons = document.querySelectorAll('.theme-dot');
 
 const STORAGE_KEY = 'spot.entries';
+const THEME_KEY = 'spot.theme';
 
 const loadSpots = () => {
   try {
@@ -77,19 +65,6 @@ const renderMarkers = (spots) => {
   });
 };
 
-const updateMatch = (spots) => {
-  const count = spots.length;
-  const progress = Math.min(count / 3, 1);
-  matchCount.textContent = count.toString();
-  matchFill.style.width = `${progress * 100}%`;
-
-  if (count >= 3) {
-    matchText.textContent = 'Matches unlocked. We are ready to suggest friends.';
-  } else {
-    matchText.textContent = `Share ${3 - count} more spot${count === 2 ? '' : 's'} to unlock your first suggested friends.`;
-  }
-};
-
 const renderFeed = (spots) => {
   nearbyFeed.innerHTML = '';
   if (spots.length === 0) {
@@ -97,15 +72,13 @@ const renderFeed = (spots) => {
     mapCard.querySelector('.map-title').textContent = 'No spots yet';
     mapCard.querySelector('.map-meta').textContent = 'Post your first spot to begin.';
     renderMarkers([]);
-    updateMatch([]);
     return;
   }
 
   nearbyEmpty.style.display = 'none';
   mapCard.querySelector('.map-title').textContent = spots[0].title;
-  mapCard.querySelector('.map-meta').textContent = `${spots[0].category} · ${spots[0].chat}`;
+  mapCard.querySelector('.map-meta').textContent = `${spots[0].category}`;
   renderMarkers(spots);
-  updateMatch(spots);
 
   spots.forEach((spot) => {
     const card = document.createElement('article');
@@ -116,27 +89,13 @@ const renderFeed = (spots) => {
         <div class="avatar"></div>
         <div>
           <p class="feed-name">${spot.title}</p>
-          <p class="feed-handle">${spot.category} · ${spot.chat}</p>
+          <p class="feed-handle">${spot.category}</p>
         </div>
       </div>
       <p class="feed-text">${spot.comment}</p>
-      <div class="feed-tags">
-        ${spot.tags.map((tag) => `<span>${tag}</span>`).join('')}
-      </div>
     `;
     nearbyFeed.appendChild(card);
   });
-};
-
-const filterSpots = (query, spots) => {
-  if (!query) return spots;
-  const value = query.toLowerCase();
-  return spots.filter((spot) =>
-    [spot.title, spot.category, spot.comment, spot.tags.join(' '), spot.chat]
-      .join(' ')
-      .toLowerCase()
-      .includes(value)
-  );
 };
 
 const previewImage = (file) => {
@@ -161,38 +120,6 @@ if (photoInput) {
   });
 }
 
-if (searchInput) {
-  chips.forEach((chip) => {
-    chip.addEventListener('click', () => {
-      const value = chip.textContent.replace('#', '');
-      searchInput.value = value;
-      renderFeed(filterSpots(value, spots));
-      searchInput.focus();
-    });
-  });
-
-  searchInput.addEventListener('input', (event) => {
-    renderFeed(filterSpots(event.target.value, spots));
-  });
-}
-
-if (searchButton) {
-  searchButton.addEventListener('click', () => {
-    const value = searchInput ? searchInput.value : '';
-    renderFeed(filterSpots(value, spots));
-    searchButton.textContent = 'Searching...';
-    window.setTimeout(() => {
-      searchButton.textContent = 'Explore';
-    }, 900);
-  });
-}
-
-if (scrollCaptureButton) {
-  scrollCaptureButton.addEventListener('click', () => {
-    document.querySelector('#capture').scrollIntoView({ behavior: 'smooth' });
-  });
-}
-
 const openQuickCapture = () => {
   if (quickCapture) {
     quickCapture.classList.add('active');
@@ -205,46 +132,8 @@ const closeQuickCapture = () => {
   }
 };
 
-if (floatingLauncher) {
-  floatingLauncher.addEventListener('click', openQuickCapture);
-}
-
-if (openQuickButton) {
-  openQuickButton.addEventListener('click', openQuickCapture);
-}
-
-if (scrollCaptureGhost) {
-  scrollCaptureGhost.addEventListener('click', () => {
-    document.querySelector('#capture').scrollIntoView({ behavior: 'smooth' });
-  });
-}
-
-const openSettingsDrawer = () => {
-  if (settingsDrawer) {
-    settingsDrawer.classList.add('active');
-  }
-};
-
-const closeSettingsDrawer = () => {
-  if (settingsDrawer) {
-    settingsDrawer.classList.remove('active');
-  }
-};
-
-if (openSettings) {
-  openSettings.addEventListener('click', openSettingsDrawer);
-}
-
-if (settingsClose) {
-  settingsClose.addEventListener('click', closeSettingsDrawer);
-}
-
-if (settingsDrawer) {
-  settingsDrawer.addEventListener('click', (event) => {
-    if (event.target === settingsDrawer) {
-      closeSettingsDrawer();
-    }
-  });
+if (cameraLauncher) {
+  cameraLauncher.addEventListener('click', openQuickCapture);
 }
 
 if (quickClose) {
@@ -270,8 +159,6 @@ if (spotForm) {
         title: formData.get('title').toString().trim(),
         category: formData.get('category').toString().trim(),
         comment: formData.get('comment').toString().trim(),
-        tags: [],
-        chat: defaultChat ? defaultChat.value : '1:1',
         photo: photoData
       };
 
@@ -292,18 +179,6 @@ if (spotForm) {
   });
 }
 
-if (topBar) {
-  const onScroll = () => {
-    if (window.scrollY > 40) {
-      topBar.classList.remove('hidden');
-    } else {
-      topBar.classList.add('hidden');
-    }
-  };
-  onScroll();
-  window.addEventListener('scroll', onScroll);
-}
-
 if (quickForm) {
   quickForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -315,8 +190,6 @@ if (quickForm) {
         title: formData.get('title').toString().trim(),
         category: formData.get('category').toString().trim(),
         comment: formData.get('comment').toString().trim(),
-        tags: [],
-        chat: defaultChat ? defaultChat.value : '1:1',
         photo: photoData
       };
 
@@ -351,3 +224,22 @@ if (intro) {
     intro.remove();
   }, 7400);
 }
+
+const setTheme = (theme) => {
+  document.body.setAttribute('data-theme', theme);
+  window.localStorage.setItem(THEME_KEY, theme);
+};
+
+const savedTheme = window.localStorage.getItem(THEME_KEY);
+if (savedTheme) {
+  setTheme(savedTheme);
+}
+
+themeButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const theme = button.getAttribute('data-theme');
+    if (theme) {
+      setTheme(theme);
+    }
+  });
+});

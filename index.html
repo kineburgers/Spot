@@ -7,12 +7,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&family=Playfair+Display:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body data-theme="mono">
     <div class="intro" aria-hidden="true" id="intro">
       <div class="intro-space">
         <div class="stars"></div>
@@ -23,6 +23,7 @@
         <p class="intro-label">Zooming to your location</p>
       </div>
     </div>
+
     <div class="quick-capture" id="quick-capture" aria-hidden="true">
       <div class="quick-card">
         <div class="quick-head">
@@ -67,196 +68,106 @@
               required
             ></textarea>
           </div>
-          <div class="field">
-            <label class="field-label" for="quick-tags">Tags</label>
-            <input
-              id="quick-tags"
-              name="tags"
-              type="text"
-              placeholder="#quiet #sunset"
-            />
-          </div>
-          <div class="field">
-            <label class="field-label" for="quick-chat">Chat preference</label>
-            <select id="quick-chat" name="chat" required>
-              <option value="1:1">1 to 1 chat</option>
-              <option value="group">Group chat</option>
-            </select>
-          </div>
           <button class="cta" type="submit">Send to the world</button>
         </form>
       </div>
     </div>
-    <div class="settings-drawer" id="settings-drawer" aria-hidden="true">
-      <div class="settings-card">
-        <div class="quick-head">
-          <p class="quick-title">Settings</p>
-          <button class="ghost" id="settings-close" type="button">Close</button>
-        </div>
-        <div class="settings-grid">
-          <div class="search-shell">
-            <label class="field-label" for="search-input">Search</label>
-            <div class="search-row">
-              <input
-                id="search-input"
-                type="text"
-                placeholder="Search your spots"
-                aria-label="Search saved spots"
-              />
-              <button class="cta" id="search-btn">Explore</button>
-            </div>
-          </div>
-          <div>
-            <p class="field-label">Default chat</p>
-            <select id="default-chat" class="settings-select">
-              <option value="1:1">1 to 1 chat</option>
-              <option value="group">Group chat</option>
-            </select>
-          </div>
-          <div>
-            <p class="field-label">Categories</p>
-            <div class="chip-row">
-              <button class="chip">Food</button>
-              <button class="chip">Art</button>
-              <button class="chip">Nature</button>
-              <button class="chip">Music</button>
-              <button class="chip">Tech</button>
-              <button class="chip">Sports</button>
-            </div>
-          </div>
-          <div>
-            <p class="field-label">Popular tags</p>
-            <div class="chip-row">
-              <button class="chip">#latebites</button>
-              <button class="chip">#openair</button>
-              <button class="chip">#meetup</button>
-              <button class="chip">#lowkey</button>
-            </div>
-          </div>
-          <div>
-            <p class="field-label">Matching</p>
-            <div class="match-panel" id="match-panel">
-              <div class="match-meter">
-                <span id="match-count">0</span>
-                <p>Spots posted</p>
-              </div>
-              <div class="match-copy">
-                <p id="match-text">
-                  Share three spots to unlock your first suggested friends.
-                </p>
-                <div class="match-bar">
-                  <span id="match-fill"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
+    <div class="theme-picker">
+      <span>Choose a look</span>
+      <div class="theme-buttons">
+        <button data-theme="mono" class="theme-dot" aria-label="Mono"></button>
+        <button data-theme="noir" class="theme-dot" aria-label="Noir"></button>
+        <button data-theme="coast" class="theme-dot" aria-label="Coast"></button>
+        <button data-theme="field" class="theme-dot" aria-label="Field"></button>
+        <button data-theme="signal" class="theme-dot" aria-label="Signal"></button>
       </div>
     </div>
+
     <div class="page">
-      <header class="top-bar">
-        <div class="brand">
-          <span class="brand-mark">Spot</span>
-          <span class="brand-sub">Local discovery</span>
-        </div>
-      <nav class="nav-links">
-        <a href="#map">Map</a>
-        <a href="#capture">Capture</a>
-      </nav>
-      <div class="top-actions">
-        <button class="ghost" id="open-settings" type="button">Settings</button>
-        <button class="cta" id="scroll-capture">Capture</button>
-      </div>
-    </header>
-
       <main>
-      <section id="map" class="map-hero">
-        <div class="map-panel">
-          <div class="map-texture"></div>
-          <div class="map-lines"></div>
-          <div class="map-markers" id="map-markers"></div>
-          <div class="map-card" id="map-card">
-            <p class="map-title">No spots yet</p>
-            <p class="map-meta">Post your first spot to begin.</p>
-          </div>
-          <div class="map-overlay">
-            <p class="eyebrow">Spot</p>
-            <h1>Capture once. Share instantly.</h1>
-            <p class="subtext">
-              Take a photo, add a note, and send.
-            </p>
-            <div class="hero-actions">
-              <button class="cta" id="open-quick">Quick capture</button>
-              <button class="ghost" id="scroll-capture-ghost">Open capture form</button>
+        <section id="map" class="map-hero">
+          <div class="map-panel">
+            <div class="map-lines"></div>
+            <div class="map-markers" id="map-markers"></div>
+            <div class="map-card" id="map-card">
+              <p class="map-title">No spots yet</p>
+              <p class="map-meta">Post your first spot to begin.</p>
+            </div>
+            <div class="map-overlay">
+              <p class="eyebrow">Spot</p>
+              <h1>Capture what you see.</h1>
+              <p class="subtext">
+                One tap opens the camera. Add a line, share, and Spot starts the
+                right 1:1 or group chat around what you love.
+              </p>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="capture" class="section">
-        <div class="section-head">
-          <h2>Capture a spot</h2>
-          <p>Snap something awesome, add a note, send it out.</p>
-        </div>
-        <form class="spot-form" id="spot-form">
-          <div class="field">
-            <label class="field-label" for="spot-photo">Photo</label>
-            <input
-              id="spot-photo"
-              name="photo"
-              type="file"
-              accept="image/*"
-              capture="environment"
-              required
-            />
+        <section id="capture" class="section">
+          <div class="section-head">
+            <h2>Capture</h2>
+            <p>Snap, note, send.</p>
           </div>
-          <div class="field">
-            <label class="field-label" for="spot-title">Title</label>
-            <input id="spot-title" name="title" type="text" required />
+          <form class="spot-form" id="spot-form">
+            <div class="field">
+              <label class="field-label" for="spot-photo">Photo</label>
+              <input
+                id="spot-photo"
+                name="photo"
+                type="file"
+                accept="image/*"
+                capture="environment"
+                required
+              />
+            </div>
+            <div class="field">
+              <label class="field-label" for="spot-title">Title</label>
+              <input id="spot-title" name="title" type="text" required />
+            </div>
+            <div class="field">
+              <label class="field-label" for="spot-category">Category</label>
+              <select id="spot-category" name="category" required>
+                <option value="">Choose one</option>
+                <option>Food</option>
+                <option>Art</option>
+                <option>Nature</option>
+                <option>Music</option>
+                <option>Tech</option>
+                <option>Sports</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="field-label" for="spot-comment">Comment</label>
+              <textarea
+                id="spot-comment"
+                name="comment"
+                rows="3"
+                placeholder="What did you notice?"
+                required
+              ></textarea>
+            </div>
+            <button class="cta" type="submit">Send to the world</button>
+          </form>
+          <div class="preview" id="preview">
+            <p class="field-label">Preview</p>
+            <div class="preview-card" id="preview-card">
+              <p>No photo yet.</p>
+            </div>
           </div>
-          <div class="field">
-            <label class="field-label" for="spot-category">Category</label>
-            <select id="spot-category" name="category" required>
-              <option value="">Choose one</option>
-              <option>Food</option>
-              <option>Art</option>
-              <option>Nature</option>
-              <option>Music</option>
-              <option>Tech</option>
-              <option>Sports</option>
-            </select>
-          </div>
-          <div class="field">
-            <label class="field-label" for="spot-comment">Comment</label>
-            <textarea
-              id="spot-comment"
-              name="comment"
-              rows="3"
-              placeholder="What did you notice?"
-              required
-            ></textarea>
-          </div>
-          <button class="cta" type="submit">Send to the world</button>
-        </form>
-        <div class="preview" id="preview">
-          <p class="field-label">Preview</p>
-          <div class="preview-card" id="preview-card">
-            <p>No photo yet.</p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="nearby" class="section">
-        <div class="section-head">
-          <h2>Nearby now</h2>
-          <p>Your posts show up here and on the map.</p>
-        </div>
-        <div class="empty-state" id="nearby-empty">
-          No posts yet. Capture your first spot to start.
-        </div>
-        <div class="feed-grid" id="nearby-feed"></div>
-      </section>
-
+        <section id="nearby" class="section">
+          <div class="section-head">
+            <h2>Nearby</h2>
+            <p>Your posts show up here.</p>
+          </div>
+          <div class="empty-state" id="nearby-empty">
+            No posts yet. Capture your first spot to start.
+          </div>
+          <div class="feed-grid" id="nearby-feed"></div>
+        </section>
       </main>
 
       <footer class="footer">
@@ -264,8 +175,11 @@
         <button class="cta" id="clear-spots">Clear spots</button>
       </footer>
     </div>
-    <button class="floating-launcher" id="floating-launcher" type="button">
-      Quick capture
+
+    <button class="camera-launcher" id="camera-launcher" type="button" aria-label="Quick capture">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7.5 7.5h1.4l1.1-1.6c.3-.4.7-.7 1.2-.7h1.6c.5 0 .9.2 1.2.7l1.1 1.6h1.4c1.2 0 2.2 1 2.2 2.2v6.6c0 1.2-1 2.2-2.2 2.2H7.5c-1.2 0-2.2-1-2.2-2.2V9.7c0-1.2 1-2.2 2.2-2.2Zm4.5 1.7a4.1 4.1 0 1 0 0 8.2 4.1 4.1 0 0 0 0-8.2Zm0 1.8a2.3 2.3 0 1 1 0 4.6 2.3 2.3 0 0 1 0-4.6Z"/>
+      </svg>
     </button>
 
     <script src="app.js"></script>
